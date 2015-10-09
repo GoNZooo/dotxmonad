@@ -29,7 +29,7 @@ setWallpaperSpawn :: String
 setWallpaperSpawn = "/home/gonz/bin/set-wallpaper.sh"
 
 xfluxSpawn :: String
-xfluxSpawn = "/home/gonz/bin/xflux-start.sh"
+xfluxSpawn = "XFLUXSCRIPTS='/home/gonz/code/bash/xflux-scripts' /home/gonz/bin/xflux-start.sh"
 
 myLayout = tiled ||| Mirror tiled ||| Full
   where
@@ -43,16 +43,16 @@ myStartupHook = do
     setWMName "LG3D"
     spawn rateSpawn
     spawn svorakA5Spawn
-    spawn setWallpaperSpawn
     spawn xfluxSpawn
+    spawn setWallpaperSpawn
 
 main = xmonad $ defaultConfig 
-                 { layoutHook = avoidStruts $ smartBorders $ myLayout 
-                 , borderWidth = 2
-                 , normalBorderColor  = "#000000" -- black
-                 , focusedBorderColor = "#ff3f3f"
-		, terminal = myTerminal
-		, startupHook = myStartupHook
+                 { layoutHook = avoidStruts $ smartBorders $ myLayout,
+                 borderWidth = 2,
+                 normalBorderColor  = "#000000", -- black
+                 focusedBorderColor = "#ff3f3f",
+                 terminal = myTerminal,
+                 startupHook = myStartupHook
                  } `additionalKeys`
 		[((mod1Mask .|. shiftMask, xK_F1), spawn svorakA5Spawn),
 		 ((mod1Mask .|. shiftMask, xK_F3), spawn seqwertySpawn),
