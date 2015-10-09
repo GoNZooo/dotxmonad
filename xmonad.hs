@@ -44,6 +44,7 @@ myStartupHook = do
     spawn rateSpawn
     spawn svorakA5Spawn
     spawn setWallpaperSpawn
+    spawn xfluxSpawn
 
 main = xmonad $ defaultConfig 
                  { layoutHook = avoidStruts $ smartBorders $ myLayout 
