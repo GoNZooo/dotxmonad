@@ -29,7 +29,7 @@ setWallpaperSpawn :: String
 setWallpaperSpawn = "/home/gonz/bin/set-wallpaper.sh"
 
 xfluxSpawn :: String
-xfluxSpawn = "/home/gonz/bin/start-xflux.sh"
+xfluxSpawn = "/home/gonz/bin/xflux-start.sh"
 
 myLayout = tiled ||| Mirror tiled ||| Full
   where
