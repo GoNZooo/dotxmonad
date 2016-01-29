@@ -5,6 +5,10 @@ import XMonad.Actions.NoBorders
 import XMonad.Util.EZConfig
 import XMonad.Hooks.SetWMName
 
+-- For xmobar
+import XMonad.Hooks.DynamicLog
+
+
 myTerminal = "urxvt"
 
 rateSpawn :: String
@@ -31,6 +35,9 @@ setWallpaperSpawn = "/home/gonz/bin/set-wallpaper.sh"
 xfluxSpawn :: String
 xfluxSpawn = "XFLUXSCRIPTS='/home/gonz/code/bash/xflux-scripts' /home/gonz/bin/xflux-start.sh"
 
+transmissionDaemonSpawn :: String
+transmissionDaemonSpawn = "transmission-daemon -g /home/gonz/.config/transmission"
+
 myLayout = tiled ||| Mirror tiled ||| Full
   where
 	tiled = Tall nmaster delta ratio
@@ -45,18 +52,21 @@ myStartupHook = do
     spawn svorakA5Spawn
     spawn xfluxSpawn
     spawn setWallpaperSpawn
+--    spawn transmissionDaemonSpawn
 
-main = xmonad $ defaultConfig 
-                 { layoutHook = avoidStruts $ smartBorders $ myLayout,
-                 borderWidth = 2,
-                 normalBorderColor  = "#000000", -- black
-                 focusedBorderColor = "#ff3f3f",
-                 terminal = myTerminal,
-                 startupHook = myStartupHook
-                 } `additionalKeys`
-		[((mod1Mask .|. shiftMask, xK_F1), spawn svorakA5Spawn),
-		 ((mod1Mask .|. shiftMask, xK_F3), spawn seqwertySpawn),
-         ((mod1Mask .|. shiftMask, xK_F2), spawn bgphoneticSpawn),
-         ((mod1Mask .|. shiftMask, xK_F4), spawn polishSpawn),
-         ((mod1Mask .|. shiftMask, xK_F5), spawn czechSpawn),
-         ((mod1Mask .|. shiftMask, xK_F12), withFocused toggleBorder)]
+myConfig = defaultConfig
+   { layoutHook = avoidStruts $ smartBorders $ myLayout,
+      borderWidth = 2,
+      normalBorderColor  = "#000000", -- black
+      focusedBorderColor = "#ff3f3f",
+      terminal = myTerminal,
+      startupHook = myStartupHook
+    } `additionalKeys`
+    [((mod1Mask .|. shiftMask, xK_F1), spawn svorakA5Spawn),
+     ((mod1Mask .|. shiftMask, xK_F3), spawn seqwertySpawn),
+     ((mod1Mask .|. shiftMask, xK_F2), spawn bgphoneticSpawn),
+     ((mod1Mask .|. shiftMask, xK_F4), spawn polishSpawn),
+     ((mod1Mask .|. shiftMask, xK_F5), spawn czechSpawn),
+     ((mod1Mask .|. shiftMask, xK_F12), withFocused toggleBorder)]
+
+main = xmonad $ myConfig
