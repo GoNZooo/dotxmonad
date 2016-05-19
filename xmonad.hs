@@ -8,8 +8,8 @@ import XMonad.Hooks.SetWMName
 -- For xmobar
 import XMonad.Hooks.DynamicLog
 
-
-myTerminal = "urxvt"
+myTerminal :: String
+myTerminal = "konsole"
 
 rateSpawn :: String
 rateSpawn = "/home/gonz/bin/setrate.sh"
@@ -40,10 +40,10 @@ transmissionDaemonSpawn = "transmission-daemon -g /home/gonz/.config/transmissio
 
 myLayout = tiled ||| Mirror tiled ||| Full
   where
-	tiled = Tall nmaster delta ratio
-	nmaster = 1
-	delta = 1/20
-	ratio = 1/2
+        tiled = Tall nmaster delta ratio
+        nmaster = 1
+        delta = 1/20
+        ratio = 1/2
 
 myStartupHook :: X ()
 myStartupHook = do
