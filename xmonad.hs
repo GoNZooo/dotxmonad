@@ -23,9 +23,6 @@ seqwertySpawn = "/home/gonz/bin/seqwerty.sh"
 bgphoneticSpawn :: String
 bgphoneticSpawn = "/home/gonz/bin/bgphonetic.sh"
 
-czechSpawn :: String
-czechSpawn = "/home/gonz/bin/czech.sh"
-
 myLayout = tiled ||| Mirror tiled ||| Full
   where
         tiled = Tall nmaster delta ratio
