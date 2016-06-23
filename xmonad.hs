@@ -23,6 +23,7 @@ seqwertySpawn = "/home/gonz/bin/seqwerty.sh"
 bgphoneticSpawn :: String
 bgphoneticSpawn = "/home/gonz/bin/bgphonetic.sh"
 
+-- I'm not sure what the type of this should be.
 myLayout = tiled ||| Mirror tiled ||| Full
   where
         tiled = Tall nmaster delta ratio
@@ -47,8 +48,6 @@ myConfig = defaultConfig
     [((mod1Mask .|. shiftMask, xK_F1), spawn svorakA5Spawn),
      ((mod1Mask .|. shiftMask, xK_F3), spawn seqwertySpawn),
      ((mod1Mask .|. shiftMask, xK_F2), spawn bgphoneticSpawn),
-     ((mod1Mask .|. shiftMask, xK_F4), spawn polishSpawn),
-     ((mod1Mask .|. shiftMask, xK_F5), spawn czechSpawn),
      ((mod1Mask .|. shiftMask, xK_F12), withFocused toggleBorder)]
 
 main = xmonad $ myConfig
