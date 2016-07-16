@@ -9,7 +9,7 @@ import XMonad.Hooks.SetWMName
 import XMonad.Hooks.DynamicLog
 
 myTerminal :: String
-myTerminal = "urxvt"
+myTerminal = "st"
 
 rateSpawn :: String
 rateSpawn = "/home/gonz/bin/setrate.sh"
