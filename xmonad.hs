@@ -23,9 +23,6 @@ seqwertySpawn = "/home/gonz/bin/seqwerty.sh"
 bgphoneticSpawn :: String
 bgphoneticSpawn = "/home/gonz/bin/bgphonetic.sh"
 
-setWallpaperSpawn :: String
-setWallpaperSpawn = "/home/gonz/bin/set-wallpaper.sh"
-
 myLayout = tiled ||| Mirror tiled ||| Full
   where
         tiled = Tall nmaster delta ratio
@@ -38,7 +35,6 @@ myStartupHook = do
     setWMName "LG3D"
     spawn rateSpawn
     spawn svorakA5Spawn
-    spawn setWallpaperSpawn
 
 myConfig = defaultConfig
    { layoutHook = avoidStruts $ smartBorders $ myLayout,
