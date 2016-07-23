@@ -9,7 +9,7 @@ import XMonad.Hooks.SetWMName
 import XMonad.Hooks.DynamicLog
 
 myTerminal :: String
-myTerminal = "konsole"
+myTerminal = "st"
 
 rateSpawn :: String
 rateSpawn = "/home/gonz/bin/setrate.sh"
@@ -23,20 +23,8 @@ seqwertySpawn = "/home/gonz/bin/seqwerty.sh"
 bgphoneticSpawn :: String
 bgphoneticSpawn = "/home/gonz/bin/bgphonetic.sh"
 
-polishSpawn :: String
-polishSpawn = "/home/gonz/bin/polish.sh"
-
-czechSpawn :: String
-czechSpawn = "/home/gonz/bin/czech.sh"
-
 setWallpaperSpawn :: String
 setWallpaperSpawn = "/home/gonz/bin/set-wallpaper.sh"
-
-xfluxSpawn :: String
-xfluxSpawn = "XFLUXSCRIPTS='/home/gonz/code/bash/xflux-scripts' /home/gonz/bin/xflux-start.sh"
-
-transmissionDaemonSpawn :: String
-transmissionDaemonSpawn = "transmission-daemon -g /home/gonz/.config/transmission"
 
 myLayout = tiled ||| Mirror tiled ||| Full
   where
@@ -50,9 +38,7 @@ myStartupHook = do
     setWMName "LG3D"
     spawn rateSpawn
     spawn svorakA5Spawn
-    spawn xfluxSpawn
     spawn setWallpaperSpawn
---    spawn transmissionDaemonSpawn
 
 myConfig = defaultConfig
    { layoutHook = avoidStruts $ smartBorders $ myLayout,
@@ -65,8 +51,6 @@ myConfig = defaultConfig
     [((mod1Mask .|. shiftMask, xK_F1), spawn svorakA5Spawn),
      ((mod1Mask .|. shiftMask, xK_F3), spawn seqwertySpawn),
      ((mod1Mask .|. shiftMask, xK_F2), spawn bgphoneticSpawn),
-     ((mod1Mask .|. shiftMask, xK_F4), spawn polishSpawn),
-     ((mod1Mask .|. shiftMask, xK_F5), spawn czechSpawn),
      ((mod1Mask .|. shiftMask, xK_F12), withFocused toggleBorder)]
 
 main = xmonad $ myConfig
