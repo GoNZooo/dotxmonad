@@ -1,6 +1,7 @@
 import XMonad
 import XMonad.Hooks.ManageDocks
 import XMonad.Layout.NoBorders
+import XMonad.Layout.Grid (Grid(..))
 import XMonad.Actions.NoBorders
 import XMonad.Util.EZConfig
 import XMonad.Hooks.SetWMName
@@ -23,7 +24,7 @@ seqwertySpawn = "/home/gonz/bin/seqwerty.sh"
 bgphoneticSpawn :: String
 bgphoneticSpawn = "/home/gonz/bin/bgphonetic.sh"
 
-myLayout = tiled ||| Mirror tiled ||| Full
+myLayout = tiled ||| Mirror tiled ||| Full ||| Grid
   where
         tiled = Tall nmaster delta ratio
         nmaster = 1
