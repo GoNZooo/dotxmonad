@@ -9,7 +9,7 @@ import XMonad.Hooks.SetWMName
 import XMonad.Hooks.DynamicLog
 
 myTerminal :: String
-myTerminal = "st"
+myTerminal = "alacritty"
 
 rateSpawn :: String
 rateSpawn = "/home/gonz/bin/setrate.sh"
@@ -36,11 +36,11 @@ myStartupHook = do
     spawn rateSpawn
     spawn svorakA5Spawn
 
-myConfig = defaultConfig
+myConfig = def
    { layoutHook = avoidStruts $ smartBorders $ myLayout,
       borderWidth = 2,
-      normalBorderColor  = "#000000", -- black
-      focusedBorderColor = "#ff3f3f",
+      normalBorderColor  = "#000000",
+      focusedBorderColor = "#a000a0",
       terminal = myTerminal,
       startupHook = myStartupHook
     } `additionalKeys`
