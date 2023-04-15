@@ -1,14 +1,39 @@
 module Main (main) where
 
 import XMonad
-import XMonad.Actions.NoBorders
--- For xmobar
-import XMonad.Hooks.ManageDocks
-import XMonad.Hooks.SetWMName
+  ( Choose,
+    Default (def),
+    Full (..),
+    Mirror (..),
+    Tall (Tall),
+    X,
+    XConfig
+      ( borderWidth,
+        focusedBorderColor,
+        layoutHook,
+        normalBorderColor,
+        startupHook,
+        terminal
+      ),
+    mod1Mask,
+    shiftMask,
+    spawn,
+    withFocused,
+    xK_F1,
+    xK_F12,
+    xK_F2,
+    xK_F3,
+    xmonad,
+    (.|.),
+    (|||),
+  )
+import XMonad.Actions.NoBorders (toggleBorder)
+import XMonad.Hooks.ManageDocks (AvoidStruts, avoidStruts)
+import XMonad.Hooks.SetWMName (setWMName)
 import XMonad.Layout.Grid (Grid (..))
 import XMonad.Layout.LayoutModifier (ModifiedLayout)
-import XMonad.Layout.NoBorders
-import XMonad.Util.EZConfig
+import XMonad.Layout.NoBorders (SmartBorder, smartBorders)
+import XMonad.Util.EZConfig (additionalKeys)
 
 myTerminal :: String
 myTerminal = "kitty"
