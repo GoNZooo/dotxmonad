@@ -7,14 +7,7 @@ import XMonad
     Mirror (..),
     Tall (Tall),
     X,
-    XConfig
-      ( borderWidth,
-        focusedBorderColor,
-        layoutHook,
-        normalBorderColor,
-        startupHook,
-        terminal
-      ),
+    XConfig (..),
     mod1Mask,
     shiftMask,
     spawn,
