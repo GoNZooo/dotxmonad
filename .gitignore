@@ -1,6 +1,6 @@
 .stack-work/
 *~
-xmonad.errors
-xmonad.o
+*.errors
 xmonad-x86_64-linux
-xmonad.hi
+*.hi
+*.o
