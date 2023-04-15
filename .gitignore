@@ -1,3 +1,5 @@
+.stack-work/
+*~
 xmonad.errors
 xmonad.o
 xmonad-x86_64-linux
