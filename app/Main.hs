@@ -92,11 +92,16 @@ myConfig =
                        ((mod1Mask .|. shiftMask, xK_F12), withFocused toggleBorder)
                      ]
 
+order :: [String] -> [String]
+order (workspaces : _layout : _title : _) = [workspaces]
+order _ = []
+
 bar :: PP
 bar =
   xmobarPP
     { ppCurrent = wrap "[" "]" >>> xmobarColor "#e4dfda" "#202020",
-      ppTitle = xmobarColor "#e4dfda" ""
+      ppTitle = xmobarColor "#e4dfda" "",
+      ppOrder = order
     }
 
 toggleStrutsKey :: XConfig t -> (KeyMask, KeySym)
