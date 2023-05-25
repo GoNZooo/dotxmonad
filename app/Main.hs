@@ -1,9 +1,12 @@
 module Main (main) where
 
+import Control.Category ((>>>))
 import XMonad
   ( Choose,
     Default (def),
     Full (..),
+    KeyMask,
+    KeySym,
     Mirror (..),
     Tall (Tall),
     X,
@@ -16,13 +19,16 @@ import XMonad
     xK_F12,
     xK_F2,
     xK_F3,
+    xK_b,
     xmonad,
     (.|.),
     (|||),
   )
 import XMonad.Actions.NoBorders (toggleBorder)
+import XMonad.Hooks.DynamicLog (statusBar, wrap, xmobarColor, xmobarPP)
 import XMonad.Hooks.ManageDocks (AvoidStruts, avoidStruts)
 import XMonad.Hooks.SetWMName (setWMName)
+import XMonad.Hooks.StatusBar.PP (PP (..))
 import XMonad.Layout.Grid (Grid (..))
 import XMonad.Layout.LayoutModifier (ModifiedLayout)
 import XMonad.Layout.NoBorders (SmartBorder, smartBorders)
@@ -86,5 +92,15 @@ myConfig =
                        ((mod1Mask .|. shiftMask, xK_F12), withFocused toggleBorder)
                      ]
 
+bar :: PP
+bar =
+  xmobarPP
+    { ppCurrent = wrap "[" "]" >>> xmobarColor "#e4dfda" "#202020",
+      ppTitle = xmobarColor "#e4dfda" ""
+    }
+
+toggleStrutsKey :: XConfig t -> (KeyMask, KeySym)
+toggleStrutsKey XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
+
 main :: IO ()
-main = xmonad myConfig
+main = statusBar "xmobar" bar toggleStrutsKey myConfig >>= xmonad

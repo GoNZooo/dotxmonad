@@ -1,0 +1,14 @@
+Config {
+  font = "Berkeley Mono 9"
+, bgColor = "#5329c8"
+, fgColor = "#e4dfda"
+, position = Top
+, lowerOnStart = True
+, sepChar = "%"
+, alignSep = "}{"
+, pickBroadest = True
+, template = "%StdinReader% }{ %date%"
+, commands = [ Run Date "%a %b %_d (%F) %R" "date" 10
+             , Run StdinReader
+             ]
+}
