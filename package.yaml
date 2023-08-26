@@ -24,6 +24,10 @@ dependencies:
 - xmonad
 - xmonad-contrib
 - xmonad-extras
+- X11
+
+default-extensions:
+  - ImportQualifiedPost
 
 ghc-options:
 - -Wall

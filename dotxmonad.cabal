@@ -30,9 +30,12 @@ library
       Paths_dotxmonad
   hs-source-dirs:
       src
+  default-extensions:
+      ImportQualifiedPost
   ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints
   build-depends:
-      base >=4.7 && <5
+      X11
+    , base >=4.7 && <5
     , xmonad
     , xmonad-contrib
     , xmonad-extras
@@ -44,9 +47,12 @@ executable xmonad-x86_64-linux
       Paths_dotxmonad
   hs-source-dirs:
       app
+  default-extensions:
+      ImportQualifiedPost
   ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
   build-depends:
-      base >=4.7 && <5
+      X11
+    , base >=4.7 && <5
     , dotxmonad
     , xmonad
     , xmonad-contrib
@@ -60,9 +66,12 @@ test-suite dotxmonad-test
       Paths_dotxmonad
   hs-source-dirs:
       test
+  default-extensions:
+      ImportQualifiedPost
   ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
   build-depends:
-      base >=4.7 && <5
+      X11
+    , base >=4.7 && <5
     , dotxmonad
     , xmonad
     , xmonad-contrib

@@ -1,6 +1,7 @@
 module Main (main) where
 
 import Control.Category ((>>>))
+import Graphics.X11.ExtraTypes.XF86 qualified as XF86
 import XMonad
   ( Choose,
     Default (def),
@@ -89,7 +90,13 @@ myConfig =
     `additionalKeys` [ ((mod1Mask .|. shiftMask, xK_F1), spawn svorakA5Spawn),
                        ((mod1Mask .|. shiftMask, xK_F3), spawn seqwertySpawn),
                        ((mod1Mask .|. shiftMask, xK_F2), spawn bgphoneticSpawn),
-                       ((mod1Mask .|. shiftMask, xK_F12), withFocused toggleBorder)
+                       ((mod1Mask .|. shiftMask, xK_F12), withFocused toggleBorder),
+                       ((def, XF86.xF86XK_AudioLowerVolume), spawn "mpc volume -5"),
+                       ((def, XF86.xF86XK_AudioRaiseVolume), spawn "mpc volume +5"),
+                       ((def, XF86.xF86XK_AudioPlay), spawn "mpc toggle"),
+                       ((def, XF86.xF86XK_Music), spawn "notify-send 'Music' 'Music pressed'"),
+                       ((def, XF86.xF86XK_AudioMedia), spawn "notify-send 'Media' 'Media pressed'"),
+                       ((def, XF86.xF86XK_AudioMute), spawn "mpc volume 0")
                      ]
 
 order :: [String] -> [String]
