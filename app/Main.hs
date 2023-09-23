@@ -2,6 +2,7 @@ module Main (main) where
 
 import Control.Category ((>>>))
 import Graphics.X11.ExtraTypes.XF86 qualified as XF86
+import Graphics.X11.Types qualified as X11
 import XMonad
   ( Choose,
     Default (def),
@@ -33,7 +34,7 @@ import XMonad.Hooks.StatusBar.PP (PP (..))
 import XMonad.Layout.Grid (Grid (..))
 import XMonad.Layout.LayoutModifier (ModifiedLayout)
 import XMonad.Layout.NoBorders (SmartBorder, smartBorders)
-import XMonad.Util.EZConfig (additionalKeys)
+import XMonad.Util.EZConfig (additionalKeys, removeKeys)
 
 myTerminal :: String
 myTerminal = "kitty"
@@ -98,6 +99,7 @@ myConfig =
                        ((def, XF86.xF86XK_AudioMedia), spawn "notify-send 'Media' 'Media pressed'"),
                        ((def, XF86.xF86XK_AudioMute), spawn "mpc volume 0")
                      ]
+    `removeKeys` [(mod1Mask, X11.xK_n)]
 
 order :: [String] -> [String]
 order (workspaces : _layout : _title : _) = [workspaces]
