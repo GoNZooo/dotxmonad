@@ -99,7 +99,7 @@ myConfig =
                        ((def, XF86.xF86XK_AudioMedia), spawn "notify-send 'Media' 'Media pressed'"),
                        ((def, XF86.xF86XK_AudioMute), spawn "mpc volume 0")
                      ]
-    `removeKeys` [(mod1Mask, X11.xK_n)]
+    `removeKeys` [(mod1Mask, X11.xK_n), (mod1Mask, X11.xK_j), (mod1Mask, X11.xK_k)]
 
 order :: [String] -> [String]
 order (workspaces : _layout : _title : _) = [workspaces]
